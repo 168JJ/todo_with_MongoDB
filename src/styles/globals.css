@@ -1,0 +1,54 @@
+html,
+body {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* background: #37474F; */
+  background: #d8d9de;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+.todo {
+  margin: 4rem auto;
+  padding: 2rem 3rem 3rem;
+  max-width: 600px;
+  background: #41a9c8;
+  color: #fff;
+  box-shadow: -8px -8px 8px 0px rgba(100, 100, 100, 0.3);
+  overflow: hidden;
+}
+
+.todo h1 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: normal;
+  font-size: 2.6rem;
+  letter-spacing: 0.15em;
+  position: relative;
+}
+
+.todo h1 svg {
+  position: absolute;
+  top: 0.4rem;
+}
+
+.todo h1 svg g {
+  fill: #fff;
+}
+
+.todo h1 span {
+  margin-left: 3.5rem;
+}
+.todo h4 {
+  margin-top: 2.6rem;
+}
