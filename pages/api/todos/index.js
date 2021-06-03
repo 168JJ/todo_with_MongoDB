@@ -17,6 +17,6 @@ export default async (req, res) => {
             await handleGetRequest(req, res)
             break
         default:
-            res.status(405).json({ error: `Method ${reeq.method} not allowed `})
+            res.status(405).json({ error: `Method ${reeq.method} not allowed` })
     } 
 }
