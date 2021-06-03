@@ -1,4 +1,4 @@
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 
 const connection = {}
 
@@ -14,14 +14,14 @@ const connectDB = () => {
     /**
    * use the new database connection
    */
-  const db = await Mongoose.connect( process.env.MONGODB, {
+  const db = await mongoose.connect( process.env.MONGO_DB, {
       useCreateIndex: true,
       useFindAndModify: false,
       useNewUrlParser: true,
       useUnifiedTopology: true
   })
 
-  console.log("DB Connected to" , db.connection.host);
+  console.log("DB Connected to", db.connection.host);
   connection.isConnected = db.connections[0].readyState
 }
 
