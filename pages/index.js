@@ -36,7 +36,7 @@ export default Home
 
 export const getServerSideProps = async () => {
   const url = `${baseUrl}/api/todos`
-  const response = await fetch (url)
+  const response = await fetch(url)
   const data = await response.json()
   // console.log('Data ', data)
   const todos = data.todos

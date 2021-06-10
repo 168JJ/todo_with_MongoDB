@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connection = {}
 
-const connectDB = () => {
+const connectDB = async () => {
     /**
    * check if db available as NextJS sometimes will dispose inactive api
    */

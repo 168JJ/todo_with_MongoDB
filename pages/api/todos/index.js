@@ -8,7 +8,7 @@ connectDB()
  */
 const handleGetRequest = async (req, res) => {
     const todos = await Todo.find()
-    res.staturs(200).json({ todos })
+    res.status(200).json({ todos })
 }
 
 export default async (req, res) => {
