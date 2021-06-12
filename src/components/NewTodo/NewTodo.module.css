@@ -1,0 +1,52 @@
+.new_todo_form {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.new_todo_form label {
+  min-width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.new_todo_form input {
+  flex-grow: 1;
+  border: none;
+  background: #f7f1f1;
+  padding: 0 1.5em;
+  font-size: initial;
+  outline: none;
+}
+.new_todo_form input::placeholder {
+  opacity: 0.45;
+}
+
+.new_todo_form button {
+  margin-left: 0.5rem;
+  padding: 0 1.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.4s ease-out;
+  outline: none;
+}
+.new_todo_form button:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.new_todo_form button:disabled {
+  color: rgba(0, 0, 0, 0.1);
+}
+.new_todo_form button[disabled]:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.new_todo_form input,
+.new_todo_form button {
+  font-family: "Quicksand", sans-serif;
+  height: 3rem;
+}

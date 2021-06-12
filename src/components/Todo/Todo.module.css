@@ -1,0 +1,89 @@
+/* #region ToDO Item */
+  .todo {
+    margin-bottom: 0.75rem;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.3);
+    transition: opacity 500ms ease-in-out;
+  }
+
+  .todo_task {
+    position: relative;
+    transition: opacity 0.4s linear;
+  }
+
+  .todo.completed {
+    transition: opacity 300ms ease-in-out;
+    transition-delay: 200ms;
+    opacity: 0.4;
+  }
+  .todo.completed .todo_task:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -0.25rem;
+    display: block;
+    width: 0%;
+    height: 4px;
+    background: #fff;
+    animation: strikeitem 0.3s ease-in 0s forwards;
+  }
+
+  @keyframes strikeitem {
+    to {
+      width: calc(100% + 1rem);
+    }
+  }
+/* #endregion */
+
+/* #region EDIT/REMOVE task Buttons */
+  .todo_buttons {
+    flex-shrink: 0;
+  }
+
+  .todo_buttons button {
+    margin: 0.4em;
+    border: none;
+    font-size: 1em;
+    background: none;
+    -webkit-appearance: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  .todo_buttons button:hover {
+    color: #FFC400;
+  }
+/* #endregion */
+
+.todo_edit_form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.todo_edit_form input {
+  flex-grow: 1;
+  padding: 0 0.8em;
+  border: none;
+  background: #f7f1f1;
+  font-size: initial;
+}
+.todo_edit_form button {
+  margin-left: 0.5rem;
+  padding: 0 1.3rem;
+  background: #FFD600;
+  color: #90A4AE;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: background#78909C 0.2s ease-out;
+}
+.todo_edit_form button:hover {
+  background: #FFC400;
+}
+.todo_edit_form input,
+.todo_edit_form button {
+  font-family: "Quicksand", sans-serif;
+  height: 3rem;
+}
