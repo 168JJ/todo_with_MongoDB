@@ -42,7 +42,7 @@ const NewTodo = () => {
             <label htmlFor="task">New Todo</label>
             <input 
                 type='text'
-                placeholder='new Todo'
+                placeholder='New Todo'
                 id='task'
                 name='task'
                 value={newTodo}

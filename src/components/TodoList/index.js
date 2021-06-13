@@ -2,7 +2,7 @@ import * as styles from './TodoList.module.css'
 
 import Todo from "components/Todo";
 
-const TodoList = ({ todos}) => {
+const TodoList = ({ todos }) => {
     return (
         <>
             <h2 className={styles.todo_list_title}>Current Todo</h2>

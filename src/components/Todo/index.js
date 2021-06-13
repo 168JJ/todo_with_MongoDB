@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Faedit, FaTimes, FaTrashAlt } from 'react-icons/fa'
+import { baseUrl } from "utils/baseUrl";
 
 import * as styles from './Todo.module.css'
 
@@ -8,25 +9,68 @@ const Todo = ({ todo }) => {
     const router = useRouter()
     const [isEditing, setisEditing] = useState(false)
     const { task, completed } = todo
+    const [updatedTask, setUpdatedTask] = useState(task)
 
+    const url = `${baseUrl}/api/todos/${todo._id}`
+
+    /**
+     * HTTP Request to API
+     */
+    const updateRequest = async payload => {
+        try{
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            })
+
+            if (!response.ok){
+                const { error } = await response.json()
+                throw error
+            }
+            router.push('/')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const deleteRequest = async () => {
+        try {
+            const response = await fetch(url, {
+                method: 'DELETE',
+        })
+        if (!response.ok) {
+            const { error } = await response.json()
+            throw error
+        }
+        router.push('/')
+        } catch (error) {
+          console.log(error)
+        }
+    }
+
+    /**
+     * Todo Fuctionality
+     */
     const toggleEditingMode = () => setisEditing(!isEditing)
 
-    const toggleCompletioin = () => {
-        console.log('Toggle');
+    const toggleCompletioin = () => updateRequest({ completed: !completed})
+
+    const handleChange = e => setUpdatedTask(e.target.value)
+
+    const handleUpdate = e => {
+        e.preventDefault()
+        updateRequest({ task: updatedTask})
+        setisEditing(false)
     }
 
-    const handleChange = () => {
-        console.log("handle change");
-    }
-
-    const handleUpdate = () => {
-        console.log("Handle Update");
-    }
-
-    const handleRemove = (params) => {
-        console.log("remove task");
-    }
+    const handleRemove = () => deleteRequest()
     
+    /**
+     *  components to render
+     */
     const NotEditing = (
         <li className={styles.todo_task} onClick={toggleCompletioin}>
             {task}
@@ -37,7 +81,7 @@ const Todo = ({ todo }) => {
         <form className={styles.todo_edit_form} onSubmit={handleUpdate}>
             <input 
                 type='text'
-                // value={updatedTask}
+                value={updatedTask}
                 name='task'
                 onChange={handleChange}
             />
