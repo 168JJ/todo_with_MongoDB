@@ -20,7 +20,7 @@ const handlePostRequest = async (req, res) => {
         const newTodo = await new Todo({ task }).save()
         res.stattus(201).json(newTodo)
     } catch (error) {
-        console.log("ERROR ", error)
+        console.log("ERROR", error)
         res.status(500).json({error})
     }
 }
@@ -34,6 +34,6 @@ export default async (req, res) => {
             await handlePostRequest(req, res)
             break
         default:
-            res.status(405).json({ error: `Method ${reeq.method} not allowed` })
+            res.status(405).json({ error: `Method ${req.method} not allowed` })
     } 
 }
