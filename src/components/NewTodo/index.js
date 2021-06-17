@@ -40,7 +40,14 @@ const NewTodo = () => {
     return (
         <form className={styles.new_todo_form} onSubmit={handleSubmit}>
             <label htmlFor="task">New Todo</label>
-            <input type='text' placeholder='New Todo' id='task' name='task' value={newTodo} onChange={handleChange}/>
+            <input 
+                type='text' 
+                placeholder='New Todo' 
+                id='task' 
+                name='task' 
+                value={newTodo} 
+                onChange={handleChange}
+            />
 
             <button disabled={Boolean(!newTodo.length)}>Add Todo</button>
         </form>

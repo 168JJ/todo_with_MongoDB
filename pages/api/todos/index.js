@@ -18,7 +18,7 @@ const handlePostRequest = async (req, res) => {
     const { task } = req.body
     try{
         const newTodo = await new Todo({ task }).save()
-        res.stattus(201).json(newTodo)
+        res.status(201).json(newTodo)
     } catch (error) {
         console.log("ERROR", error)
         res.status(500).json({error})
