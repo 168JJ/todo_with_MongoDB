@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { Faedit, FaTimes, FaTrashAlt } from 'react-icons/fa'
+import { FaEdit, FaTimes, FaTrashAlt } from 'react-icons/fa'
 import { baseUrl } from "utils/baseUrl";
 
 import * as styles from './Todo.module.css'
@@ -41,10 +41,11 @@ const Todo = ({ todo }) => {
             const response = await fetch(url, {
                 method: 'DELETE',
         })
+        
         if (!response.ok) {
             const { error } = await response.json()
             throw error
-        }
+            }
         router.push('/')
         } catch (error) {
           console.log(error)
@@ -99,7 +100,7 @@ const Todo = ({ todo }) => {
 
             <div className={styles.todo_buttons}>
                 <button onClick={toggleEditingMode}>
-                    { isEditing ? <FaTimes /> : <Faedit/>}
+                    { isEditing ? <FaTimes /> : <FaEdit/>}
                 </button>
                 <button onClick={handleRemove}>
                     <FaTrashAlt />

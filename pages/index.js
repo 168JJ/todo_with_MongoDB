@@ -22,7 +22,7 @@ const Home = ({todos}) => {
 
         <NewTodo />
 
-        {todos.length > 0 ? (
+        { todos.length > 0 ? (
           <TodoList todos={todos} />
         ) : (
           <h4>Hooray! You have no todo.</h4>
