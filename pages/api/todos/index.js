@@ -16,6 +16,7 @@ const handleGetRequest = async (req, res) => {
 
 const handlePostRequest = async (req, res) => {
     const { task } = req.body
+    console.log('Task ', task)
     try{
         const newTodo = await new Todo({ task }).save()
         res.status(201).json(newTodo)

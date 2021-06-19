@@ -15,12 +15,13 @@ const NewTodo = () => {
     const handleSubmit = async e => {
         // console.log('submit')
         e.preventDefault()
+        console.log('New ToDo ', newTodo)
         try{
             const url = `${baseUrl}/api/todos`
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'Contetn-Type': 'application/json',
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({task: newTodo}),
             })
