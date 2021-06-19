@@ -40,14 +40,14 @@ const Todo = ({ todo }) => {
         try {
             const response = await fetch(url, {
                 method: 'DELETE',
-        })
+            })
         
         if (!response.ok) {
             const { error } = await response.json()
             throw error
             }
         router.push('/')
-        } catch (error) {
+    } catch (error) {
           console.log(error)
         }
     }
